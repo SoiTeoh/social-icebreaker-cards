@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+:root { --ink: #26231f; --muted: #736c64; --paper: #fbf8f2; --terracotta: #c76a50; }
+* { box-sizing: border-box; }
+html { background: var(--paper); }
+body { margin: 0; color: var(--ink); background: var(--paper); font-family: Arial, Helvetica, sans-serif; }
+button { cursor: pointer; }
+button:focus-visible { outline: 3px solid var(--terracotta); outline-offset: 3px; }
+.screen { min-height: 100svh; }
+.text-ink-muted { color: var(--muted); }
+.text-terracotta { color: var(--terracotta); }
+.brand-mark { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 16px; background: var(--ink); color: #fff; font-size: 30px; }
+.eyebrow { color: var(--terracotta); text-transform: uppercase; letter-spacing: .18em; font-size: 12px; font-weight: 800; }
+.deck-option { min-height: 142px; padding: 17px; border: 2px solid transparent; border-radius: 22px; text-align: left; transition: transform .15s, border-color .15s; }
+.deck-option:hover { transform: translateY(-2px); }
+.deck-option.selected { border-color: var(--ink); }
+.deck-icon { display: block; margin-bottom: 8px; font-size: 26px; line-height: 1; }
+.deck-casual { background: #dcebf1; color: #234a56; }
+.deck-funny { background: #f9e9ac; color: #665016; }
+.deck-deep { background: #e7e0ed; color: #51405e; }
+.deck-dating { background: #f6dedb; color: #77463f; }
+.primary-button { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 64px; padding: 0 24px; border-radius: 18px; background: var(--ink); color: #fff; font-size: 18px; font-weight: 700; transition: background .15s, transform .15s; }
+.primary-button:hover { background: #4a4039; }
+.primary-button:active { transform: scale(.99); }
+.text-button { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-weight: 700; }
+.utility-link { color: var(--muted); font-size: 14px; }
+.language-selector { display: inline-flex; align-items: center; gap: 5px; min-height: 44px; padding: 0 8px; border: 1px solid #d9d2c8; border-radius: 12px; background: #fffdf9; color: var(--ink); font-size: 14px; }
+.language-selector select { max-width: 96px; min-height: 42px; border: 0; background: transparent; color: inherit; cursor: pointer; }
+.language-selector select:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 1px; }
+.utility-link:hover, .restart-button:hover { color: var(--ink); text-decoration: underline; }
+.secondary-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 118px; min-height: 64px; padding: 0 16px; border: 1px solid #d9d2c8; border-radius: 18px; background: #fffdf9; font-size: 16px; font-weight: 700; }
+.secondary-button:disabled { opacity: .42; cursor: not-allowed; }
+.restart-button { min-height: 44px; padding: 0 16px; color: var(--muted); font-size: 14px; font-weight: 600; }
+.question-card { display: flex; flex-direction: column; width: 100%; min-height: min(58svh, 560px); padding: clamp(24px, 6vw, 42px); border-radius: 28px; box-shadow: 0 12px 32px rgb(39 32 24 / 8%); animation: card-enter .18s ease-out both; }
+.card-symbol { font-size: 26px; line-height: 1; opacity: .75; }
+.conversation-cue { padding-top: 14px; border-top: 1px solid currentColor; }
+.cue-label { display: block; font-size: 11px; font-weight: 800; letter-spacing: .14em; line-height: 1.4; text-transform: uppercase; opacity: .7; }
+.follow-up { min-height: 44px; }
+.follow-up-button { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; min-height: 44px; padding: 0; border: 0; border-top: 1px solid currentColor; background: transparent; color: inherit; font-size: 14px; font-weight: 700; text-align: left; }
+.follow-up-button span { font-size: 23px; font-weight: 400; }
+@keyframes card-enter { from { opacity: .65; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .question-card { animation: none; } .deck-option, .primary-button { transition: none; } }
+@media (max-width: 380px) { .deck-option { min-height: 130px; padding: 13px; } }
