@@ -6,7 +6,9 @@ The product aims to feel like a quiet host or card dealer: it starts a conversat
 
 ## Project status
 
-**Phases 1–3 are implemented. Phase 4 adds an English and Simplified Chinese localization foundation.** Real-group playtesting is still needed to assess the conversation cues and review Chinese wording with native speakers.
+**MVP Development Complete — Pending Playtest** (Phases 1–4 implemented; Phase B quality improvements & Phase C automated verification passed). Real-group playtesting, physical-device checks, and deployment are still pending to assess the conversation cues and review Chinese wording with native speakers.
+
+See [PROJECT_STATUS.md](PROJECT_STATUS.md) for the latest handover summary, [PROJECT_PLAN.md](PROJECT_PLAN.md) for the product plan, and [TODO.md](TODO.md) for the implementation checklist. Later phases (Phases 5–8) have not been built.
 
 | Phase | Status | Focus |
 | --- | --- | --- |

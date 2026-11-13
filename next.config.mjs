@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Allow phones on the local Wi-Fi to load development assets and HMR.
   allowedDevOrigins: ["192.168.1.101"],
+  ...(process.env.BLOG_STATIC_EXPORT === "1" ? {
+    output: "export",
+    basePath: "/apps/icebreaker",
+    trailingSlash: true,
+  } : {}),
 };
 
 export default nextConfig;

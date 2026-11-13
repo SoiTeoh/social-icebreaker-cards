@@ -11,7 +11,12 @@ export function StartScreen({ selected, onSelect, onStart, language, onLanguageC
     <main className="screen mx-auto flex w-full max-w-lg flex-col px-5 py-8 sm:py-12">
       <div className="mb-auto">
         <div className="flex items-start justify-between gap-4">
-          <div className="brand-mark" aria-hidden="true">✳</div>
+          <div>
+            <a href="https://soiteoh.cc/projects/" className="text-button utility-link mb-3 inline-block text-sm">
+              ← {t.backToProjects}
+            </a>
+            <div className="brand-mark" aria-hidden="true">✳</div>
+          </div>
           <LanguageSelector language={language} onChange={onLanguageChange} />
         </div>
         <p className="eyebrow mt-10">{t.eyebrow}</p>

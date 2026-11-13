@@ -53,3 +53,16 @@
 ## Phase 8 — AI (future, documentation only)
 
 - [ ] Consider assisted deck creation only if card quality rules and user demand justify it.
+
+## Phase B & Phase C — Quality, Automation & Final Dev Acceptance (completed 2026-11-13)
+
+- **Status**: **MVP Development Complete — Pending Playtest** (code & automated checks done; real-group playtesting, physical-device testing, and deployment remain pending).
+- [x] Eliminate first-paint English flash for Chinese browsers via synchronous `<head>` init script + `useLayoutEffect` (0 Hydration errors, 400ms fallback).
+- [x] Preserve `BLOG_STATIC_EXPORT=1` config and localize the StartScreen back-to-projects link (`t.backToProjects`).
+- [x] Extract pure `src/lib/gameLogic.ts` and harden `readSavedLanguage` / `saveLanguage` against `window.localStorage` getter exceptions.
+- [x] Add Vitest suite (3 files, 12 tests covering shuffle, non-repeating reshuffle, history navigation/limit, localization fallback, storage error safety, and 80-card integrity).
+- [x] Verify `tsc --noEmit`, `vitest run`, `next build --webpack`, and `BLOG_STATIC_EXPORT=1` static export (`out/`). Note: default Turbopack build still fails with an environment-related `TurbopackInternalError` whose root cause is not yet finally confirmed.
+- [x] Verify Playwright E2E across `360×640`, `390×844`, `1280×800` and 6 first-paint language edge cases (0 console/page errors; observed ~19px vertical scroll on `360×640` during horizontal swipe, pending physical-device check).
+- [ ] Real-group playtesting (conversation quality & Chinese naturalness review).
+- [ ] Physical mobile device testing (Android Chrome / iOS Safari).
+- [ ] Production deployment (paused until playtesting).

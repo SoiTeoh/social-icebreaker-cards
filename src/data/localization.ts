@@ -1,5 +1,7 @@
 import type { Language, LocalizedText } from "@/types/card";
 
+export const LANGUAGE_STORAGE_KEY = "social-icebreaker-language";
+
 export function localize(text: LocalizedText, language: Language): string {
   return text[language]?.trim() || text.en;
 }
@@ -9,8 +11,36 @@ export function initialLanguage(saved: string | null, browserLanguage: string): 
   return browserLanguage.toLowerCase().startsWith("zh") ? "zh-CN" : "en";
 }
 
+export function readSavedLanguage(
+  storage?: Pick<Storage, "getItem"> | null,
+): string | null {
+  try {
+    const target =
+      storage === undefined ? (typeof window !== "undefined" ? window.localStorage : null) : storage;
+    return target ? target.getItem(LANGUAGE_STORAGE_KEY) : null;
+  } catch {
+    return null;
+  }
+}
+
+export function saveLanguage(
+  language: Language,
+  storage?: Pick<Storage, "setItem"> | null,
+): boolean {
+  try {
+    const target =
+      storage === undefined ? (typeof window !== "undefined" ? window.localStorage : null) : storage;
+    if (!target) return false;
+    target.setItem(LANGUAGE_STORAGE_KEY, language);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 const en = {
   appTitle: "Social Icebreaker Cards",
+  backToProjects: "My projects",
   language: "Language",
   eyebrow: "A little less small talk",
   headlineFirst: "Good questions.",
@@ -35,6 +65,7 @@ const en = {
 
 const zh: typeof en = {
   appTitle: "破冰聊天卡",
+  backToProjects: "我的项目",
   language: "语言",
   eyebrow: "聊点有意思的",
   headlineFirst: "好问题，",

@@ -7,6 +7,7 @@ body { margin: 0; color: var(--ink); background: var(--paper); font-family: Aria
 button { cursor: pointer; }
 button:focus-visible { outline: 3px solid var(--terracotta); outline-offset: 3px; }
 .screen { min-height: 100svh; }
+html[data-lang-pending="1"] .screen { opacity: 0; }
 .text-ink-muted { color: var(--muted); }
 .text-terracotta { color: var(--terracotta); }
 .brand-mark { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 16px; background: var(--ink); color: #fff; font-size: 30px; }
